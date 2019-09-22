@@ -18,6 +18,7 @@ func Config() *registerConfig {
 	if instance == nil {
 		instance = new(registerConfig)
 		instance.Init()
+		instance.registerConfigInit()
 	}
 	return instance
 }
