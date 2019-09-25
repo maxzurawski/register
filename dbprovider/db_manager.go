@@ -3,6 +3,8 @@ package dbprovider
 import (
 	"fmt"
 
+	"github.com/xdevices/register/dto"
+
 	"github.com/xdevices/utilities/symbols"
 
 	"github.com/xdevices/register/model"
@@ -20,7 +22,13 @@ var Mgr DBManager
 
 type DBManager interface {
 	GetDb() *gorm.DB
+
+	// Attributes
 	GetAttributes() ([]model.Attribute, error)
+	UpdateAttribute(attribute dto.AttributeDTO) (*model.Attribute, error)
+
+	// Mappers
+	MapAttributeToDTO(attribute *model.Attribute) dto.AttributeDTO
 }
 
 type manager struct {
