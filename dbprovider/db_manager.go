@@ -2,6 +2,7 @@ package dbprovider
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/xdevices/register/dto"
 
@@ -30,6 +31,13 @@ type DBManager interface {
 
 	// Mappers
 	MapAttributeToDTO(attribute *model.Attribute) dto.AttributeDTO
+	MapToSensorAttribute(attributesDTO []dto.SensorAttributeDTO, now time.Time) []model.SensorAttribute
+	MapToSensorAttributeDTO(entity *model.SensorAttribute) dto.SensorAttributeDTO
+	MapToSensorEntity(registerDTO dto.SensorRegisterDTO) *model.SensorRegister
+	MapToSensorDTO(sensor *model.SensorRegister) dto.SensorRegisterDTO
+
+	// Sensor
+	SaveSenor(sensor dto.SensorRegisterDTO) (*model.SensorRegister, error)
 }
 
 type manager struct {
