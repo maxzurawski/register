@@ -11,7 +11,7 @@ import (
 	"github.com/xdevices/utilities/stringutils"
 )
 
-func (mgr *manager) SaveSenor(sensor dto.SensorRegisterDTO) (*model.SensorRegister, error) {
+func (mgr *manager) SaveSensor(sensor dto.SensorRegisterDTO) (*model.SensorRegister, error) {
 
 	// check if given sensor.ID is not zero -> if it set, fail
 	if !stringutils.IsZero(sensor.ID) {

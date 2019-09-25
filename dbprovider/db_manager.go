@@ -37,7 +37,7 @@ type DBManager interface {
 	MapToSensorDTO(sensor *model.SensorRegister) dto.SensorRegisterDTO
 
 	// Sensor
-	SaveSenor(sensor dto.SensorRegisterDTO) (*model.SensorRegister, error)
+	SaveSensor(sensor dto.SensorRegisterDTO) (*model.SensorRegister, error)
 }
 
 type manager struct {
