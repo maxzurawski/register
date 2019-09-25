@@ -26,6 +26,7 @@ type DBManager interface {
 	// Attributes
 	GetAttributes() ([]model.Attribute, error)
 	UpdateAttribute(attribute dto.AttributeDTO) (*model.Attribute, error)
+	GetAttributeBySymbol(symbol string) (*model.Attribute, error)
 
 	// Mappers
 	MapAttributeToDTO(attribute *model.Attribute) dto.AttributeDTO
