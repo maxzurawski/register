@@ -13,3 +13,20 @@ type SensorRegister struct {
 	CreatedAt   *time.Time        `gorm:"column:created_at"`
 	ModifiedAt  *time.Time        `gorm:"column:modified_at"`
 }
+
+type SensorsArray []SensorRegister
+type SensorRegisterFilter func(*SensorRegister, string) bool
+
+func (sa SensorsArray) FilterBy(fn SensorRegisterFilter, value string) *SensorRegister {
+
+	if sa == nil || len(sa) == 0 {
+		return nil
+	}
+
+	for _, item := range sa {
+		if fn(&item, value) {
+			return &item
+		}
+	}
+	return nil
+}
