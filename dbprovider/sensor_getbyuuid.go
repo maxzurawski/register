@@ -11,7 +11,7 @@ func (mgr *manager) GetSensorByUuid(uuid string) (*model.SensorRegister, error) 
 
 	// check if uuid given is not empty
 	if stringutils.IsZero(uuid) {
-		return nil, errors.New("given uuid is empty. nothing to search")
+		return nil, errors.New("given uuid is empty. nothing to search for")
 	}
 
 	// check if uuid is valid
