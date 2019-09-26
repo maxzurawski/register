@@ -38,6 +38,7 @@ type DBManager interface {
 
 	// Sensor
 	SaveSensor(sensor dto.SensorRegisterDTO) (*model.SensorRegister, error)
+	GetAllSensors() ([]model.SensorRegister, error)
 }
 
 type manager struct {
