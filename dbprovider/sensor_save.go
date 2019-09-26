@@ -37,7 +37,7 @@ func (mgr *manager) SaveSensor(sensor dto.SensorRegisterDTO) (*model.SensorRegis
 
 	// check if sensor with sensor.Uuid has an ID -> if it has, no save
 	if entity.ID != nil {
-		err := fmt.Sprintf("ups, something went wrong. sensor regisiter with uuid=[%s] already exists", sensor.Uuid)
+		err := fmt.Sprintf("ups, something went wrong. sensor register with uuid=[%s] already exists", sensor.Uuid)
 		log.Error(err)
 		return nil, errors.New(err)
 	}
