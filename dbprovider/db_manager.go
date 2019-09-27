@@ -40,6 +40,7 @@ type DBManager interface {
 	SaveSensor(sensor dto.SensorRegisterDTO) (*model.SensorRegister, error)
 	GetAllSensors() ([]model.SensorRegister, error)
 	GetSensorByUuid(uuid string) (*model.SensorRegister, error)
+	UpdateSensor(sensorDTO dto.SensorRegisterDTO) (*model.SensorRegister, error)
 }
 
 type manager struct {
