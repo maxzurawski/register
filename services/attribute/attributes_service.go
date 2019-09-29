@@ -7,6 +7,7 @@ import (
 
 type AttributesService interface {
 	GetAll() ([]dto.AttributeDTO, error)
+	GetAttributeBySymbol(symbol string) (*dto.AttributeDTO, error)
 }
 
 var Service AttributesService
