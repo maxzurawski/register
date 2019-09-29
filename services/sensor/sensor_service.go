@@ -9,6 +9,7 @@ import (
 type SensorsService interface {
 	Save(registerDTO dto.SensorRegisterDTO) (*dto.SensorRegisterDTO, error)
 	Update(registerDTO dto.SensorRegisterDTO) (*dto.SensorRegisterDTO, error)
+	Delete(uuid string) (uint, error)
 }
 
 var Service SensorsService
