@@ -11,6 +11,7 @@ type SensorsService interface {
 	Update(registerDTO dto.SensorRegisterDTO) (*dto.SensorRegisterDTO, error)
 	Delete(uuid string) (uint, error)
 	GetAll() ([]dto.SensorRegisterDTO, error)
+	FindSensorByUuid(uuid string) *dto.SensorRegisterDTO
 }
 
 var Service SensorsService
