@@ -50,7 +50,7 @@ func (h *HandleSensorSaveSuite) TestFailure_BodyIncorrect() {
 	bytes, _ := json.Marshal(sensors)
 
 	e := echo.New()
-	req := httptest.NewRequest(http.MethodPut, "/", strings.NewReader(string(bytes)))
+	req := httptest.NewRequest(http.MethodPost, "/", strings.NewReader(string(bytes)))
 	req.Header.Set("Content-Type", "application/json")
 	rec := httptest.NewRecorder()
 	c := e.NewContext(req, rec)
@@ -87,7 +87,7 @@ func (h *HandleSensorSaveSuite) TestSuccess() {
 	bytes, _ := json.Marshal(sensor)
 
 	e := echo.New()
-	req := httptest.NewRequest(http.MethodPut, "/", strings.NewReader(string(bytes)))
+	req := httptest.NewRequest(http.MethodPost, "/", strings.NewReader(string(bytes)))
 	req.Header.Set("Content-Type", "application/json")
 	rec := httptest.NewRecorder()
 	c := e.NewContext(req, rec)
