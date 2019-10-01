@@ -107,6 +107,7 @@ func (h *HandleSensorSaveSuite) TestSuccess() {
 	assert.True(h.T(), afterSave.Version == 0)
 	assert.True(h.T(), len(afterSave.Attributes) == 1)
 	attributeDTO := afterSave.Attributes[0]
+	assert.True(h.T(), attributeDTO.ID > 0)
 	assert.True(h.T(), attributeDTO.SensorRegisterID == afterSave.ID)
 
 }
