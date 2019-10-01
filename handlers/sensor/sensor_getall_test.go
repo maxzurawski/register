@@ -7,7 +7,6 @@ import (
 	"testing"
 
 	"github.com/xdevices/utilities/db"
-	"github.com/xdevices/utilities/symbols"
 
 	"github.com/labstack/echo"
 
@@ -63,16 +62,7 @@ func (h *HandleSensorsGetAllSuite) TestSuccess_getall_content_available() {
 	cleaner := db.DeleteCreatedEntities(dbprovider.Mgr.GetDb())
 	defer cleaner()
 
-	var attributes []dto.SensorAttributeDTO
-	attributes = append(attributes, dto.SensorAttributeDTO{Symbol: symbols.Active.String(), Value: "true"})
-
-	registerDTO := dto.SensorRegisterDTO{
-		Name:       "Dummy sensor",
-		Type:       "DUMMY_TYPE",
-		Uuid:       "81750491-88dd-410e-b53f-1666786cd721",
-		Attributes: attributes,
-	}
-	_, _ = sensor.Service.Save(registerDTO)
+	prepareTestSensor()
 
 	e := echo.New()
 	req := httptest.NewRequest(http.MethodGet, "/", nil)
@@ -90,7 +80,7 @@ func (h *HandleSensorsGetAllSuite) TestSuccess_getall_content_available() {
 	_ = json.NewDecoder(rec.Body).Decode(&dtos)
 	assert.Equal(h.T(), 1, len(dtos))
 	afterGetAll := dtos[0]
-	assert.Equal(h.T(), registerDTO.Name, afterGetAll.Name)
-	assert.Equal(h.T(), registerDTO.Uuid, afterGetAll.Uuid)
+	assert.Equal(h.T(), "Dummy sensor", afterGetAll.Name)
+	assert.Equal(h.T(), "81750491-88dd-410e-b53f-1666786cd721", afterGetAll.Uuid)
 	assert.True(h.T(), afterGetAll.ID > 0)
 }
