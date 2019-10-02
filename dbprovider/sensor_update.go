@@ -64,6 +64,11 @@ func (mgr *manager) populateWithChanges(register *model.SensorRegister, register
 	register.Name = &registerDTO.Name
 	register.Description = &registerDTO.Description
 
+	createdTimeById := make(map[uint]time.Time)
+	for _, attr := range register.Attributes {
+		createdTimeById[*attr.ID] = *attr.CreateAt
+	}
+
 	err := mgr.GetDb().Unscoped().Where("sensor_register_id=?", *register.ID).Delete(model.SensorAttribute{}).Error
 	if err != nil {
 		log.Warn(err)
@@ -71,10 +76,10 @@ func (mgr *manager) populateWithChanges(register *model.SensorRegister, register
 
 	// reset sensorattributes on object -> delete current sensorattributes, assign sensorattributes from dto
 	register.Attributes = []model.SensorAttribute{}
-	register.Attributes = convert(registerDTO.Attributes, modificationTime, register)
+	register.Attributes = convert(registerDTO.Attributes, modificationTime, createdTimeById)
 }
 
-func convert(attributesDTO []dto.SensorAttributeDTO, now time.Time, register *model.SensorRegister) (attributes []model.SensorAttribute) {
+func convert(attributesDTO []dto.SensorAttributeDTO, now time.Time, createdTimeById map[uint]time.Time) (attributes []model.SensorAttribute) {
 
 	for _, item := range attributesDTO {
 
@@ -87,18 +92,17 @@ func convert(attributesDTO []dto.SensorAttributeDTO, now time.Time, register *mo
 		sensorAttribute.CreateAt = new(time.Time)
 		sensorAttribute.ModifiedAt = new(time.Time)
 
+		*sensorAttribute.RefSymbol = item.Symbol
+		*sensorAttribute.Value = item.Value.ToString()
+		*sensorAttribute.CreateAt = now
+		*sensorAttribute.ModifiedAt = now
+
 		if !stringutils.IsZero(item.ID) {
 			sensorAttribute.ID = new(uint)
 			*sensorAttribute.ID = item.ID
 			*sensorAttribute.Version = item.Version + 1
+			*sensorAttribute.CreateAt = createdTimeById[item.ID]
 		}
-
-		*sensorAttribute.RefSymbol = item.Symbol
-		*sensorAttribute.Value = item.Value.ToString()
-
-		//TODO: adjust this processing, so that createAt is used from original sensorattribute
-		*sensorAttribute.CreateAt = now
-		*sensorAttribute.ModifiedAt = now
 		attributes = append(attributes, *sensorAttribute)
 	}
 	return
