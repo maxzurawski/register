@@ -33,5 +33,6 @@ func HandleSensorDelete(c echo.Context) error {
 	if amount == 1 {
 		return c.NoContent(http.StatusOK)
 	}
-	return c.NoContent(http.StatusNoContent)
+
+	return c.NoContent(http.StatusNotFound)
 }
