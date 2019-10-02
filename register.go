@@ -10,14 +10,24 @@ import (
 	"github.com/xdevices/register/services/sensor"
 )
 
+func init() {
+	eureka := config.EurekaManagerInit()
+	eureka.SendRegistrationOrFail()
+	eureka.ScheduleHeartBeat(config.Config().ServiceName(), 10)
+
+	dbprovider.InitDbManager()
+	attribute.Init()
+	sensor.Init()
+}
+
 func main() {
 
 	e := echo.New()
 
 	// Sensors
 	e.GET("/sensors/", sensor2.HandleGetSensors)
+	e.POST("/sensors/", sensor2.HandleSaveSensor)
 	e.GET("/sensors/:uuid", sensor2.HandleGetSensorByUuid)
-	e.POST("/sensors/:uuid", sensor2.HandleSaveSensor)
 	e.PUT("/sensors/:uuid", sensor2.HandleSensorUpdate)
 	e.DELETE("/sensors/:uuid", sensor2.HandleSensorDelete)
 
@@ -27,14 +37,4 @@ func main() {
 	e.PUT("/attributes/:symbol", attribute2.HandleUpdateAttribute)
 
 	e.Logger.Fatal(e.Start(config.Config().Address()))
-}
-
-func init() {
-	eureka := config.EurekaManagerInit()
-	eureka.SendRegistrationOrFail()
-	eureka.ScheduleHeartBeat(config.Config().ServiceName(), 10)
-
-	dbprovider.InitDbManager()
-	attribute.Init()
-	sensor.Init()
 }
