@@ -95,6 +95,7 @@ func convert(attributesDTO []dto.SensorAttributeDTO, now time.Time, register *mo
 		if !stringutils.IsZero(item.ID) {
 			sensorAttribute.ID = new(uint)
 			*sensorAttribute.ID = item.ID
+			*sensorAttribute.Version = item.Version + 1
 		}
 
 		*sensorAttribute.RefSymbol = item.Symbol
@@ -105,7 +106,6 @@ func convert(attributesDTO []dto.SensorAttributeDTO, now time.Time, register *mo
 			*sensorAttribute.Version = item.Version
 		} else {
 			*sensorAttribute.CreateAt = *attribute.CreateAt
-			*sensorAttribute.Version = *attribute.Version + 1
 		}
 		*sensorAttribute.ModifiedAt = now
 		attributes = append(attributes, *sensorAttribute)
