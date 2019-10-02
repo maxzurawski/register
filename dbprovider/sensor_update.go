@@ -76,11 +76,6 @@ func (mgr *manager) populateWithChanges(register *model.SensorRegister, register
 
 func convert(attributesDTO []dto.SensorAttributeDTO, now time.Time, register *model.SensorRegister) (attributes []model.SensorAttribute) {
 
-	attrById := map[uint]model.SensorAttribute{}
-	for _, attr := range register.Attributes {
-		attrById[*attr.ID] = attr
-	}
-
 	for _, item := range attributesDTO {
 
 		sensorAttribute := new(model.SensorAttribute)
@@ -101,12 +96,8 @@ func convert(attributesDTO []dto.SensorAttributeDTO, now time.Time, register *mo
 		*sensorAttribute.RefSymbol = item.Symbol
 		*sensorAttribute.Value = item.Value.ToString()
 
-		if attribute, ok := attrById[item.ID]; !ok {
-			*sensorAttribute.CreateAt = now
-			*sensorAttribute.Version = item.Version
-		} else {
-			*sensorAttribute.CreateAt = *attribute.CreateAt
-		}
+		//TODO: adjust this processing, so that createAt is used from original sensorattribute
+		*sensorAttribute.CreateAt = now
 		*sensorAttribute.ModifiedAt = now
 		attributes = append(attributes, *sensorAttribute)
 	}
