@@ -4,12 +4,15 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/xdevices/utilities/rabbit"
+
 	"github.com/xdevices/utilities/config"
 )
 
 type registerConfig struct {
 	config.Manager
 	dbPath string
+	rabbit.RabbitMQManager
 }
 
 var instance *registerConfig
@@ -28,6 +31,10 @@ func (c *registerConfig) registerConfigInit() {
 		panic(fmt.Sprintf("set DB_PATH and try again"))
 	} else {
 		c.dbPath = dbPath
+	}
+
+	if c.ConnectToRabbit() {
+		c.RabbitMQManager.InitConnection(c.RabbitURL())
 	}
 }
 

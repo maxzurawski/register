@@ -12,5 +12,6 @@ func EnvironmentPreparations() {
 	_ = os.Setenv("EUREKA_SERVICE", "http://xdevicesdev.home:8761")
 	userHomeDir := stringutils.UserHomeDir()
 	_ = os.Setenv("DB_PATH", userHomeDir+"/.databases/xdevices/test/sensorregister.db")
+	_ = os.Setenv("CONNECT_TO_RABBIT", "FALSE")
 	InitDbManager()
 }

@@ -6,6 +6,7 @@ import (
 	"github.com/xdevices/register/dbprovider"
 	attribute2 "github.com/xdevices/register/handlers/attribute"
 	sensor2 "github.com/xdevices/register/handlers/sensor"
+	"github.com/xdevices/register/publishers"
 	"github.com/xdevices/register/services/attribute"
 	"github.com/xdevices/register/services/sensor"
 )
@@ -18,6 +19,7 @@ func init() {
 	dbprovider.InitDbManager()
 	attribute.Init()
 	sensor.Init()
+	publishers.Init()
 }
 
 func main() {
