@@ -8,7 +8,7 @@ import (
 )
 
 type sensorsPublisher struct {
-	intern *publishing.Publisher
+	*publishing.Publisher
 }
 
 func (p *sensorsPublisher) PublishDeleteChange(previous, current interface{}) {
@@ -28,7 +28,7 @@ func (p *sensorsPublisher) publishRaw(routingKeySuffix string, previous, current
 		log.Info("connection to rabbit disabled")
 		return
 	}
-	p.intern.PublishConfigurationChanged(crosscutting.RoutingKeySensors.String()+"."+routingKeySuffix,
+	p.PublishConfigurationChanged(crosscutting.RoutingKeySensors.String()+"."+routingKeySuffix,
 		config.Config().ServiceName(),
 		previous,
 		current,

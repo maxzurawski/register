@@ -6,21 +6,31 @@ import (
 	"github.com/xdevices/utilities/rabbit/publishing"
 )
 
-var configChanged *publishing.Publisher
+var configChangedPublisher *publishing.Publisher
 var sensorsPublisherInstance *sensorsPublisher
+var attributesPublisherInstance *attributesPublisher
 
 func Init() {
-	if configChanged == nil && config.Config().ConnectToRabbit() {
-		configChanged = config.Config().InitPublisher()
+	if configChangedPublisher == nil && config.Config().ConnectToRabbit() {
+		configChangedPublisher = config.Config().InitPublisher()
 		// NOTE: once declared - even if we disconnect, exchange will stay there in rabbitmq
-		configChanged.DeclareTopicExchange(crosscutting.TopicConfigurationChanged.String())
+		configChangedPublisher.DeclareTopicExchange(crosscutting.TopicConfigurationChanged.String())
 	}
 }
 
 func SensorsPublisher() *sensorsPublisher {
 	if sensorsPublisherInstance == nil {
-		sensorsPublisherInstance = new(sensorsPublisher)
-		sensorsPublisherInstance.intern = configChanged
+		sensorsPublisherInstance = &sensorsPublisher{
+			configChangedPublisher,
+		}
 	}
 	return sensorsPublisherInstance
+}
+
+func AttributesPublisher() *attributesPublisher {
+	if attributesPublisherInstance == nil {
+		attributesPublisherInstance = new(attributesPublisher)
+		attributesPublisherInstance.Publisher = configChangedPublisher
+	}
+	return attributesPublisherInstance
 }

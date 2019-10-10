@@ -4,6 +4,8 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/xdevices/register/publishers"
+
 	"github.com/xdevices/utilities/resterror"
 
 	"github.com/labstack/echo"
@@ -32,10 +34,13 @@ func HandleUpdateAttribute(c echo.Context) error {
 		return c.JSON(http.StatusBadRequest, resterror.New("given symbol with symbol in attribute provided does not match"))
 	}
 
+	oldAttribute, _ := attribute.Service.GetAttributeBySymbol(symbol)
 	updateAttribute, err := attribute.Service.UpdateAttribute(*attributeDTO)
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, resterror.New(err.Error()))
 	}
+
+	publishers.AttributesPublisher().PublishUpdateChange(oldAttribute, updateAttribute)
 
 	return c.JSON(http.StatusAccepted, updateAttribute)
 }
