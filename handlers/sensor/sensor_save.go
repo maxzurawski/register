@@ -3,6 +3,8 @@ package sensor
 import (
 	"net/http"
 
+	"github.com/xdevices/register/publishers"
+
 	"github.com/xdevices/utilities/resterror"
 
 	"github.com/labstack/echo"
@@ -20,6 +22,8 @@ func HandleSaveSensor(c echo.Context) error {
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, resterror.ErrorMsg{Msg: err.Error()})
 	}
+
+	publishers.SensorsPublisher().PublishSaveChange("", created)
 
 	return c.JSON(http.StatusCreated, created)
 }

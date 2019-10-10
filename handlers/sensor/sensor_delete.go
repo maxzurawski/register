@@ -3,6 +3,8 @@ package sensor
 import (
 	"net/http"
 
+	"github.com/xdevices/register/publishers"
+
 	"github.com/xdevices/utilities/resterror"
 	"github.com/xdevices/utilities/stringutils"
 
@@ -21,6 +23,7 @@ func HandleSensorDelete(c echo.Context) error {
 		return c.JSON(http.StatusBadRequest, resterror.New("invalid uuid given"))
 	}
 
+	sensorToDelete := sensor.Service.FindSensorByUuid(uuid)
 	amount, err := sensor.Service.Delete(uuid)
 	if err != nil && err.Error() != "record not found" {
 		return c.JSON(http.StatusInternalServerError, resterror.New(err.Error()))
@@ -31,6 +34,7 @@ func HandleSensorDelete(c echo.Context) error {
 	}
 
 	if amount == 1 {
+		publishers.SensorsPublisher().PublishDeleteChange(sensorToDelete, "")
 		return c.NoContent(http.StatusOK)
 	}
 

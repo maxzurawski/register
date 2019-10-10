@@ -4,6 +4,8 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/xdevices/register/publishers"
+
 	"github.com/xdevices/utilities/resterror"
 	"github.com/xdevices/utilities/stringutils"
 
@@ -41,6 +43,8 @@ func HandleSensorUpdate(c echo.Context) error {
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, resterror.New(err.Error()))
 	}
+
+	publishers.SensorsPublisher().PublishUpdateChange(oldSensor, updated)
 
 	return c.JSON(http.StatusAccepted, updated)
 
