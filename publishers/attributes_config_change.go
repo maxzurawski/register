@@ -17,7 +17,7 @@ func (p *attributesPublisher) PublishUpdateChange(previous, current interface{})
 		log.Info("connection to rabbit disabled")
 		return
 	}
-
+	p.Reset()
 	p.PublishConfigurationChanged(crosscutting.RoutingKeySensors.String()+".update",
 		config.Config().ServiceName(),
 		previous,

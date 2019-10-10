@@ -28,6 +28,7 @@ func (p *sensorsPublisher) publishRaw(routingKeySuffix string, previous, current
 		log.Info("connection to rabbit disabled")
 		return
 	}
+	p.Reset()
 	p.PublishConfigurationChanged(crosscutting.RoutingKeySensors.String()+"."+routingKeySuffix,
 		config.Config().ServiceName(),
 		previous,
