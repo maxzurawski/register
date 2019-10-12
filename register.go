@@ -38,5 +38,8 @@ func main() {
 	e.GET("/attributes/:symbol", attribute2.HandleGetAttributeBySymbol)
 	e.PUT("/attributes/:symbol", attribute2.HandleUpdateAttribute)
 
+	// cache
+	e.GET("/cachesensors/", sensor2.HandleGetCacheSensors)
+
 	e.Logger.Fatal(e.Start(config.Config().Address()))
 }
