@@ -12,6 +12,9 @@ type SensorsService interface {
 	Delete(uuid string) (uint, error)
 	GetAll() ([]dto.SensorRegisterDTO, error)
 	FindSensorByUuid(uuid string) *dto.SensorRegisterDTO
+
+	// caches
+	GetCachedSensors() ([]dto.CachedSensorDTO, error)
 }
 
 var Service SensorsService

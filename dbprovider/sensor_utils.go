@@ -3,6 +3,8 @@ package dbprovider
 import (
 	"time"
 
+	"github.com/xdevices/utilities/symbols"
+
 	"github.com/xdevices/register/dto"
 	"github.com/xdevices/register/model"
 )
@@ -46,6 +48,25 @@ func (mgr *manager) MapToSensorDTO(sensor *model.SensorRegister) dto.SensorRegis
 		Description: *sensor.Description,
 		Uuid:        *sensor.Uuid,
 		Attributes:  attr,
+	}
+
+	return dto
+}
+
+func (mgr *manager) MapToCachedSensorDTO(sensor *model.SensorRegister) dto.CachedSensorDTO {
+
+	if sensor == nil {
+		return dto.CachedSensorDTO{}
+	}
+
+	dto := dto.CachedSensorDTO{
+		Name:        *sensor.Name,
+		Type:        *sensor.Type,
+		Description: *sensor.Description,
+		Uuid:        *sensor.Uuid,
+		Active:      sensor.IsActive(),
+		Max:         sensor.GetAttributeAsString(symbols.AcceptableMax.String()),
+		Min:         sensor.GetAttributeAsString(symbols.AcceptableMin.String()),
 	}
 
 	return dto

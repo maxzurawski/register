@@ -1,6 +1,12 @@
 package model
 
-import "time"
+import (
+	"strconv"
+	"strings"
+	"time"
+
+	"github.com/xdevices/utilities/symbols"
+)
 
 type SensorRegister struct {
 	ID          *uint             `gorm:"primary_key;auto_increment"`
@@ -29,4 +35,26 @@ func (sa SensorsArray) FilterBy(fn SensorRegisterFilter, value string) *SensorRe
 		}
 	}
 	return nil
+}
+
+func (r *SensorRegister) IsActive() bool {
+	for _, item := range r.Attributes {
+		if strings.ToUpper(*item.RefSymbol) == strings.ToUpper(symbols.Active.String()) {
+			if value, err := strconv.ParseBool(*item.Value); err != nil {
+				return false
+			} else {
+				return value
+			}
+		}
+	}
+	return true
+}
+
+func (r *SensorRegister) GetAttributeAsString(symbol string) string {
+	for _, item := range r.Attributes {
+		if strings.ToUpper(*item.RefSymbol) == strings.ToUpper(symbol) {
+			return *item.Value
+		}
+	}
+	return ""
 }

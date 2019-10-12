@@ -35,6 +35,7 @@ type DBManager interface {
 	MapToSensorAttributeDTO(entity *model.SensorAttribute) dto.SensorAttributeDTO
 	MapToSensorEntity(registerDTO dto.SensorRegisterDTO) *model.SensorRegister
 	MapToSensorDTO(sensor *model.SensorRegister) dto.SensorRegisterDTO
+	MapToCachedSensorDTO(sensor *model.SensorRegister) dto.CachedSensorDTO
 
 	// Sensor
 	SaveSensor(sensor dto.SensorRegisterDTO) (*model.SensorRegister, error)
