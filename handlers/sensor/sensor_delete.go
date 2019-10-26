@@ -3,13 +3,13 @@ package sensor
 import (
 	"net/http"
 
-	"github.com/xdevices/register/publishers"
+	"github.com/maxzurawski/register/publishers"
 
-	"github.com/xdevices/utilities/resterror"
-	"github.com/xdevices/utilities/stringutils"
+	"github.com/maxzurawski/utilities/resterror"
+	"github.com/maxzurawski/utilities/stringutils"
 
 	"github.com/labstack/echo"
-	"github.com/xdevices/register/services/sensor"
+	"github.com/maxzurawski/register/services/sensor"
 )
 
 func HandleSensorDelete(c echo.Context) error {

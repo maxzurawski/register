@@ -4,17 +4,17 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/xdevices/register/dto"
+	"github.com/maxzurawski/register/dto"
 
-	"github.com/xdevices/utilities/symbols"
+	"github.com/maxzurawski/utilities/symbols"
 
-	"github.com/xdevices/register/model"
+	"github.com/maxzurawski/register/model"
 
 	"github.com/labstack/gommon/log"
 
 	"github.com/jinzhu/gorm"
-	"github.com/xdevices/register/config"
-	"github.com/xdevices/utilities/db"
+	"github.com/maxzurawski/register/config"
+	"github.com/maxzurawski/utilities/db"
 
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )

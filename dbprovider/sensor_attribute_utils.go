@@ -3,10 +3,10 @@ package dbprovider
 import (
 	"time"
 
-	"github.com/xdevices/utilities/stringutils"
+	"github.com/maxzurawski/utilities/stringutils"
 
-	"github.com/xdevices/register/dto"
-	"github.com/xdevices/register/model"
+	"github.com/maxzurawski/register/dto"
+	"github.com/maxzurawski/register/model"
 )
 
 func (mgr *manager) MapToSensorAttribute(attributesDTO []dto.SensorAttributeDTO, now time.Time) (attributes []model.SensorAttribute) {

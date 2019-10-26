@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo"
-	"github.com/xdevices/register/services/attribute"
+	"github.com/maxzurawski/register/services/attribute"
 )
 
 func HandleGetAllAttributes(c echo.Context) error {

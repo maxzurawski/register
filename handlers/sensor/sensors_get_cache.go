@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo"
-	"github.com/xdevices/register/dto"
-	"github.com/xdevices/register/services/sensor"
+	"github.com/maxzurawski/register/dto"
+	"github.com/maxzurawski/register/services/sensor"
 )
 
 func HandleGetCacheSensors(c echo.Context) error {

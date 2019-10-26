@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/xdevices/utilities/rabbit"
+	"github.com/maxzurawski/utilities/rabbit"
 
-	"github.com/xdevices/utilities/config"
+	"github.com/maxzurawski/utilities/config"
 )
 
 type registerConfig struct {

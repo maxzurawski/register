@@ -1,6 +1,6 @@
 package dbprovider
 
-import "github.com/xdevices/register/model"
+import "github.com/maxzurawski/register/model"
 
 func (mgr *manager) GetAllSensors() ([]model.SensorRegister, error) {
 	var sensors []model.SensorRegister

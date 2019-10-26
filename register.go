@@ -2,13 +2,13 @@ package main
 
 import (
 	"github.com/labstack/echo"
-	"github.com/xdevices/register/config"
-	"github.com/xdevices/register/dbprovider"
-	attribute2 "github.com/xdevices/register/handlers/attribute"
-	sensor2 "github.com/xdevices/register/handlers/sensor"
-	"github.com/xdevices/register/publishers"
-	"github.com/xdevices/register/services/attribute"
-	"github.com/xdevices/register/services/sensor"
+	"github.com/maxzurawski/register/config"
+	"github.com/maxzurawski/register/dbprovider"
+	attribute2 "github.com/maxzurawski/register/handlers/attribute"
+	sensor2 "github.com/maxzurawski/register/handlers/sensor"
+	"github.com/maxzurawski/register/publishers"
+	"github.com/maxzurawski/register/services/attribute"
+	"github.com/maxzurawski/register/services/sensor"
 )
 
 func init() {

@@ -3,9 +3,9 @@ package dbprovider
 import (
 	"errors"
 
-	"github.com/xdevices/register/dto"
-	"github.com/xdevices/register/model"
-	"github.com/xdevices/utilities/stringutils"
+	"github.com/maxzurawski/register/dto"
+	"github.com/maxzurawski/register/model"
+	"github.com/maxzurawski/utilities/stringutils"
 )
 
 func (mgr *manager) UpdateAttribute(attributeDTO dto.AttributeDTO) (*model.Attribute, error) {

@@ -1,7 +1,7 @@
 package sensor
 
 import (
-	"github.com/xdevices/register/dto"
+	"github.com/maxzurawski/register/dto"
 )
 
 func (s *service) Update(registerDTO dto.SensorRegisterDTO) (*dto.SensorRegisterDTO, error) {

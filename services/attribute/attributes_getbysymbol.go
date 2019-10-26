@@ -1,6 +1,6 @@
 package attribute
 
-import "github.com/xdevices/register/dto"
+import "github.com/maxzurawski/register/dto"
 
 func (s *service) GetAttributeBySymbol(symbol string) (*dto.AttributeDTO, error) {
 	result, err := s.mgr.GetAttributeBySymbol(symbol)

@@ -1,9 +1,9 @@
 package publishers
 
 import (
-	"github.com/xdevices/register/config"
-	"github.com/xdevices/utilities/rabbit/crosscutting"
-	"github.com/xdevices/utilities/rabbit/publishing"
+	"github.com/maxzurawski/register/config"
+	"github.com/maxzurawski/utilities/rabbit/crosscutting"
+	"github.com/maxzurawski/utilities/rabbit/publishing"
 )
 
 var configChangedPublisher *publishing.Publisher

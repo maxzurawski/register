@@ -7,21 +7,21 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/xdevices/utilities/symbols"
+	"github.com/maxzurawski/utilities/symbols"
 
-	"github.com/xdevices/utilities/db"
+	"github.com/maxzurawski/utilities/db"
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/xdevices/utilities/resterror"
+	"github.com/maxzurawski/utilities/resterror"
 
-	"github.com/xdevices/register/dto"
+	"github.com/maxzurawski/register/dto"
 
 	"github.com/labstack/echo"
 
+	"github.com/maxzurawski/register/dbprovider"
+	"github.com/maxzurawski/register/services/sensor"
 	"github.com/stretchr/testify/suite"
-	"github.com/xdevices/register/dbprovider"
-	"github.com/xdevices/register/services/sensor"
 )
 
 // suite struct

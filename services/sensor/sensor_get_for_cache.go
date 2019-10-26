@@ -1,6 +1,6 @@
 package sensor
 
-import "github.com/xdevices/register/dto"
+import "github.com/maxzurawski/register/dto"
 
 func (s *service) GetCachedSensors() ([]dto.CachedSensorDTO, error) {
 	sensors, err := s.mgr.GetAllSensors()

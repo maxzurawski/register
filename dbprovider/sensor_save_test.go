@@ -5,15 +5,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xdevices/utilities/db"
+	"github.com/maxzurawski/utilities/db"
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/xdevices/utilities/symbols"
+	"github.com/maxzurawski/utilities/symbols"
 
+	"github.com/maxzurawski/register/dto"
+	"github.com/maxzurawski/register/model"
 	"github.com/stretchr/testify/suite"
-	"github.com/xdevices/register/dto"
-	"github.com/xdevices/register/model"
 )
 
 // suite struct
