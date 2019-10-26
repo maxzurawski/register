@@ -1,6 +1,6 @@
 package sensor
 
-import "github.com/xdevices/register/dto"
+import "github.com/maxzurawski/register/dto"
 
 func (s *service) GetAll() ([]dto.SensorRegisterDTO, error) {
 	// NOTE: get all entities with dbmanager

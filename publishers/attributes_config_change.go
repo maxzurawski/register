@@ -2,9 +2,9 @@ package publishers
 
 import (
 	"github.com/labstack/gommon/log"
-	"github.com/xdevices/register/config"
-	"github.com/xdevices/utilities/rabbit/crosscutting"
-	"github.com/xdevices/utilities/rabbit/publishing"
+	"github.com/maxzurawski/register/config"
+	"github.com/maxzurawski/utilities/rabbit/crosscutting"
+	"github.com/maxzurawski/utilities/rabbit/publishing"
 )
 
 type attributesPublisher struct {

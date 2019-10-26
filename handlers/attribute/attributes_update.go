@@ -4,14 +4,14 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/xdevices/register/publishers"
+	"github.com/maxzurawski/register/publishers"
 
-	"github.com/xdevices/utilities/resterror"
+	"github.com/maxzurawski/utilities/resterror"
 
 	"github.com/labstack/echo"
-	"github.com/xdevices/register/dto"
-	"github.com/xdevices/register/services/attribute"
-	"github.com/xdevices/utilities/stringutils"
+	"github.com/maxzurawski/register/dto"
+	"github.com/maxzurawski/register/services/attribute"
+	"github.com/maxzurawski/utilities/stringutils"
 )
 
 func HandleUpdateAttribute(c echo.Context) error {

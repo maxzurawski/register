@@ -4,11 +4,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/xdevices/utilities/symbols"
+	"github.com/maxzurawski/utilities/symbols"
 
-	"github.com/xdevices/register/model"
+	"github.com/maxzurawski/register/model"
 
-	"github.com/xdevices/utilities/db"
+	"github.com/maxzurawski/utilities/db"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"

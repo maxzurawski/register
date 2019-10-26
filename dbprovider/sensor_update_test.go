@@ -5,11 +5,11 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/xdevices/register/model"
+	"github.com/maxzurawski/register/model"
 
+	"github.com/maxzurawski/utilities/db"
+	"github.com/maxzurawski/utilities/symbols"
 	"github.com/stretchr/testify/suite"
-	"github.com/xdevices/utilities/db"
-	"github.com/xdevices/utilities/symbols"
 )
 
 // suite struct

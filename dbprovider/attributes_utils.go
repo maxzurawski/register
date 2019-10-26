@@ -1,8 +1,8 @@
 package dbprovider
 
 import (
-	"github.com/xdevices/register/dto"
-	"github.com/xdevices/register/model"
+	"github.com/maxzurawski/register/dto"
+	"github.com/maxzurawski/register/model"
 )
 
 func (mgr *manager) MapAttributeToDTO(attribute *model.Attribute) dto.AttributeDTO {
