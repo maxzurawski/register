@@ -3,7 +3,7 @@ package dbprovider
 import (
 	"os"
 
-	"github.com/maxzurawski/utilities/stringutils"
+	"github.com/xdevices/utilities/stringutils"
 )
 
 func EnvironmentPreparations() {

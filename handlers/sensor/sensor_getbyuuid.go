@@ -3,11 +3,11 @@ package sensor
 import (
 	"net/http"
 
-	"github.com/maxzurawski/utilities/resterror"
+	"github.com/xdevices/utilities/resterror"
 
 	"github.com/labstack/echo"
-	"github.com/maxzurawski/register/services/sensor"
-	"github.com/maxzurawski/utilities/stringutils"
+	"github.com/xdevices/register/services/sensor"
+	"github.com/xdevices/utilities/stringutils"
 )
 
 func HandleGetSensorByUuid(c echo.Context) error {

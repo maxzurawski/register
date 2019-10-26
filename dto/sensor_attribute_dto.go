@@ -1,6 +1,6 @@
 package dto
 
-import "github.com/maxzurawski/utilities/stringutils"
+import "github.com/xdevices/utilities/stringutils"
 
 type SensorAttributeDTO struct {
 	ID               uint                    `json:"id"`

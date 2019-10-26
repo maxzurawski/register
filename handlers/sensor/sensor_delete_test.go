@@ -6,15 +6,15 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/maxzurawski/utilities/db"
+	"github.com/xdevices/utilities/db"
 
-	"github.com/maxzurawski/utilities/resterror"
 	"github.com/stretchr/testify/assert"
+	"github.com/xdevices/utilities/resterror"
 
 	"github.com/labstack/echo"
 
-	"github.com/maxzurawski/register/dbprovider"
-	"github.com/maxzurawski/register/services/sensor"
+	"github.com/xdevices/register/dbprovider"
+	"github.com/xdevices/register/services/sensor"
 
 	"github.com/stretchr/testify/suite"
 )

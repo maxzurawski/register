@@ -1,8 +1,8 @@
 package attribute
 
 import (
-	"github.com/maxzurawski/register/dbprovider"
-	"github.com/maxzurawski/register/dto"
+	"github.com/xdevices/register/dbprovider"
+	"github.com/xdevices/register/dto"
 )
 
 type AttributesService interface {

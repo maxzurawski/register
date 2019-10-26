@@ -1,6 +1,6 @@
 package dbprovider
 
-import "github.com/maxzurawski/register/model"
+import "github.com/xdevices/register/model"
 
 func (mgr *manager) GetAttributes() ([]model.Attribute, error) {
 	var attributes []model.Attribute

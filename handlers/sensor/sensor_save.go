@@ -3,13 +3,13 @@ package sensor
 import (
 	"net/http"
 
-	"github.com/maxzurawski/register/publishers"
+	"github.com/xdevices/register/publishers"
 
-	"github.com/maxzurawski/utilities/resterror"
+	"github.com/xdevices/utilities/resterror"
 
 	"github.com/labstack/echo"
-	"github.com/maxzurawski/register/dto"
-	"github.com/maxzurawski/register/services/sensor"
+	"github.com/xdevices/register/dto"
+	"github.com/xdevices/register/services/sensor"
 )
 
 func HandleSaveSensor(c echo.Context) error {

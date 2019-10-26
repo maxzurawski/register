@@ -6,12 +6,12 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/maxzurawski/register/dto"
+	"github.com/xdevices/register/dto"
 
 	"github.com/labstack/echo"
 
-	"github.com/maxzurawski/register/dbprovider"
-	"github.com/maxzurawski/register/services/attribute"
+	"github.com/xdevices/register/dbprovider"
+	"github.com/xdevices/register/services/attribute"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"

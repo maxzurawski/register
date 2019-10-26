@@ -1,8 +1,8 @@
 package sensor
 
 import (
-	"github.com/maxzurawski/register/dbprovider"
-	"github.com/maxzurawski/register/dto"
+	"github.com/xdevices/register/dbprovider"
+	"github.com/xdevices/register/dto"
 )
 
 // here does not mean we have to ask in each method database

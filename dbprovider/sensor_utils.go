@@ -3,10 +3,10 @@ package dbprovider
 import (
 	"time"
 
-	"github.com/maxzurawski/utilities/symbols"
+	"github.com/xdevices/utilities/symbols"
 
-	"github.com/maxzurawski/register/dto"
-	"github.com/maxzurawski/register/model"
+	"github.com/xdevices/register/dto"
+	"github.com/xdevices/register/model"
 )
 
 func (mgr *manager) MapToSensorEntity(registerDTO dto.SensorRegisterDTO) *model.SensorRegister {

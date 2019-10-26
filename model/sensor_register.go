@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/maxzurawski/utilities/symbols"
+	"github.com/xdevices/utilities/symbols"
 )
 
 type SensorRegister struct {

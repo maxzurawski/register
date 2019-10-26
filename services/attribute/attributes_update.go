@@ -1,6 +1,6 @@
 package attribute
 
-import "github.com/maxzurawski/register/dto"
+import "github.com/xdevices/register/dto"
 
 func (s *service) UpdateAttribute(attribute dto.AttributeDTO) (*dto.AttributeDTO, error) {
 	result, err := s.mgr.UpdateAttribute(attribute)

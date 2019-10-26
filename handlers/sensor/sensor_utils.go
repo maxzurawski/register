@@ -1,9 +1,9 @@
 package sensor
 
 import (
-	"github.com/maxzurawski/register/dto"
-	"github.com/maxzurawski/register/services/sensor"
-	"github.com/maxzurawski/utilities/symbols"
+	"github.com/xdevices/register/dto"
+	"github.com/xdevices/register/services/sensor"
+	"github.com/xdevices/utilities/symbols"
 )
 
 func prepareTestSensor() {

@@ -3,8 +3,8 @@ package dbprovider
 import (
 	"errors"
 
-	"github.com/maxzurawski/register/model"
-	"github.com/maxzurawski/utilities/stringutils"
+	"github.com/xdevices/register/model"
+	"github.com/xdevices/utilities/stringutils"
 )
 
 func (mgr *manager) GetSensorByUuid(uuid string) (*model.SensorRegister, error) {

@@ -7,15 +7,15 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/maxzurawski/utilities/resterror"
+	"github.com/xdevices/utilities/resterror"
 
 	"github.com/stretchr/testify/assert"
 
 	"github.com/labstack/echo"
-	"github.com/maxzurawski/register/dto"
+	"github.com/xdevices/register/dto"
 
-	"github.com/maxzurawski/register/dbprovider"
-	"github.com/maxzurawski/register/services/attribute"
+	"github.com/xdevices/register/dbprovider"
+	"github.com/xdevices/register/services/attribute"
 
 	"github.com/stretchr/testify/suite"
 )

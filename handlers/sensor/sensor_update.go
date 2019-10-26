@@ -4,14 +4,14 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/maxzurawski/register/publishers"
+	"github.com/xdevices/register/publishers"
 
-	"github.com/maxzurawski/utilities/resterror"
-	"github.com/maxzurawski/utilities/stringutils"
+	"github.com/xdevices/utilities/resterror"
+	"github.com/xdevices/utilities/stringutils"
 
 	"github.com/labstack/echo"
-	"github.com/maxzurawski/register/dto"
-	"github.com/maxzurawski/register/services/sensor"
+	"github.com/xdevices/register/dto"
+	"github.com/xdevices/register/services/sensor"
 )
 
 func HandleSensorUpdate(c echo.Context) error {

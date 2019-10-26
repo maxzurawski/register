@@ -3,10 +3,10 @@ package sensor
 import (
 	"net/http"
 
-	"github.com/maxzurawski/utilities/resterror"
+	"github.com/xdevices/utilities/resterror"
 
 	"github.com/labstack/echo"
-	"github.com/maxzurawski/register/services/sensor"
+	"github.com/xdevices/register/services/sensor"
 )
 
 func HandleGetSensors(c echo.Context) error {
