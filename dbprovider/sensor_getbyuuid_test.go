@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/xdevices/utilities/db"
+	"github.com/maxzurawski/utilities/db"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"

@@ -1,6 +1,6 @@
 package dbprovider
 
-import "github.com/xdevices/register/model"
+import "github.com/maxzurawski/register/model"
 
 func (mgr *manager) GetAttributeBySymbol(symbol string) (*model.Attribute, error) {
 	attribute := &model.Attribute{}

@@ -2,7 +2,7 @@ package sensor
 
 import (
 	"github.com/labstack/gommon/log"
-	"github.com/xdevices/register/dto"
+	"github.com/maxzurawski/register/dto"
 )
 
 func (s *service) FindSensorByUuid(uuid string) *dto.SensorRegisterDTO {

@@ -3,7 +3,7 @@ package dbprovider
 import (
 	"testing"
 
-	"github.com/xdevices/utilities/symbols"
+	"github.com/maxzurawski/utilities/symbols"
 
 	"github.com/stretchr/testify/assert"
 
