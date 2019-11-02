@@ -95,6 +95,15 @@ func initAttributes(db *gorm.DB) {
 			"Is sensor active, or should it be ignored?",
 			"boolean")
 	}
+
+	attribute = model.Attribute{}
+	db.Where("symbol = ?", symbols.NotificationAfterContinuousTransitionAmount.String()).First(&attribute)
+	if attribute.Symbol == nil {
+		insertAttribute(db, symbols.NotificationAfterContinuousTransitionAmount.String(),
+			"NACTA",
+			"notification send, after n-amount of previous continously measurements are transitioning acceptable value",
+			"numeric")
+	}
 }
 
 func insertAttribute(db *gorm.DB, symbol, name, description, inputtype string) {
