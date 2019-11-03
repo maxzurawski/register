@@ -67,6 +67,7 @@ func (mgr *manager) MapToCachedSensorDTO(sensor *model.SensorRegister) dto.Cache
 		Active:      sensor.IsActive(),
 		Max:         sensor.GetAttributeAsString(symbols.AcceptableMax.String()),
 		Min:         sensor.GetAttributeAsString(symbols.AcceptableMin.String()),
+		Nacta:       sensor.GetAttributeAsInt(symbols.NotificationAfterContinuousTransitionAmount.String()),
 	}
 
 	return dto

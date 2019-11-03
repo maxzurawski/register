@@ -58,3 +58,16 @@ func (r *SensorRegister) GetAttributeAsString(symbol string) string {
 	}
 	return ""
 }
+
+func (r *SensorRegister) GetAttributeAsInt(symbol string) int {
+	for _, item := range r.Attributes {
+		if strings.ToUpper(*item.RefSymbol) == strings.ToUpper(symbol) {
+			if value, err := strconv.Atoi(*item.Value); err != nil {
+				return -1
+			} else {
+				return value
+			}
+		}
+	}
+	return -1
+}

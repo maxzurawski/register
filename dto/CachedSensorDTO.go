@@ -6,6 +6,7 @@ type CachedSensorDTO struct {
 	Type        string `json:"type"`
 	Max         string `json:"max"`
 	Min         string `json:"min"`
+	Nacta       int    `json:"nacta"`
 	Name        string `json:"name"`
 	Description string `json:"description"`
 }
